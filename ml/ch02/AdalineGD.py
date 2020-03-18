@@ -1,3 +1,5 @@
+import numpy
+
 class AdalineGD(object):
     """ADAptive LInear NEuron classifier.
     
@@ -40,7 +42,7 @@ class AdalineGD(object):
         self : object
         
         """
-        rgen = np.random.RandomState(self.random_state)
+        rgen = numpy.random.RandomState(self.random_state)
         self.w_ = rgen.normal(loc=0.0, scale=0.01, size=1+X.shape[1])
         self.cost_ = []
 
@@ -57,7 +59,7 @@ class AdalineGD(object):
 
     def net_input(self, X):
         """Calculate net input"""
-        return np.dot(X, self.w_[1:]) + self.w_[0]
+        return numpy.dot(X, self.w_[1:]) + self.w_[0]
     
     def activation(self, X):
         """Compute linear activation"""
@@ -65,4 +67,4 @@ class AdalineGD(object):
     
     def predict(self, X):
         """Return class label after unit step"""
-        return np.where(self.activation(self.net_input(X)) >= 0.0, 1, -1)
+        return numpy.where(self.activation(self.net_input(X)) >= 0.0, 1, -1)
