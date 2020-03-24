@@ -10,6 +10,8 @@ pynvim = "*"
 numpy = "*"
 matplotlib = "*"
 pandas = "*"
+sklearn = "*"
+neovim = "*"
 
 [requires]
 python_version = "3.7"
